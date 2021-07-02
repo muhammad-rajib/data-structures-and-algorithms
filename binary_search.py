@@ -21,6 +21,5 @@ def binary_search(number_list, search_value):
 
     print('OOPS!!..Value not found in number list')
 
-
 number_list = [10, 20, 30, 40, 50, 60, 70, 80]
-binary_search(number_list, search_value=100)
+binary_search(number_list, search_value=80)
