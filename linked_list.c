@@ -103,6 +103,10 @@ int insertItemLast(int item) // Insert item at the last position of the list
     {
         return NULL_VALUE;
     }
+    else if(length == 0)
+    {
+        insertItemBegin(item);
+    }
     else
     {
         newNode->item = item;
@@ -212,8 +216,6 @@ int deleteLastOccurrence(int item)// Delete the last occurrence of the given ite
     struct listNode *current, *prev, *temp;
 
     current=list;
-    prev=NULL;
-    temp=NULL;
 
     while(current!=NULL)
     {
