@@ -101,20 +101,20 @@ int insertItemLast(int item) // Insert item at the last position of the list
 
     if(newNode == NULL)
     {
-        printf("Unable to allocate memory.");
+        return NULL_VALUE;
     }
     else
     {
-        newNode->item = item; // Link the data part
+        newNode->item = item;
         newNode->next = NULL; 
 
         temp = list;
 
-        // Traverse to the last node
+        // move to the last item
         while(temp != NULL && temp->next != NULL)
             temp = temp->next;
 
-        temp->next = newNode; // Link address part
+        temp->next = newNode;
         length++;
 
         return SUCCESS_VALUE;
@@ -146,6 +146,9 @@ int insertItemAT(int item, int position) // Insert item at the given position of
         }
         newnode->next = curNode->next;
         curNode->next = newnode;
+        length++;
+
+        return SUCCESS_VALUE;
     }
 }
 
@@ -182,7 +185,7 @@ int deleteALLOccurrence(int item) // Delete all the occurrence of the given item
         temp = list;
         length--;
     }
-    // Delete occurrences other than head
+    // Delete occurrences other than first item
     while (temp != NULL)
     {
         while (temp != NULL && temp->item != item)
@@ -194,13 +197,11 @@ int deleteALLOccurrence(int item) // Delete all the occurrence of the given item
         if (temp == NULL)
             return NULL_VALUE;
  
-        // Unlink the node from linked list
         prev->next = temp->next;
         length--;
  
-        free(temp); // Free memory
+        free(temp);
  
-        // Update Temp for next iteration of outer loop
         temp = prev->next;
     }
     return SUCCESS_VALUE;
@@ -223,8 +224,10 @@ int deleteLastOccurrence(int item)// Delete the last occurrence of the given ite
         }
         current=current->next;
     }
+    
     prev->next=temp->next;
     length--;
+
     return SUCCESS_VALUE ;
 }
 
@@ -233,9 +236,7 @@ int deleteFirstItem() // delete the first item of the list
     struct listNode *temp;
      
     if (list == NULL)
-    {
-        printf("List is Empty.");
-    }
+        return NULL_VALUE;
     else
     {
         temp = list->next;
@@ -253,14 +254,14 @@ int deletelastItem() // delete the last item of the list
 
     if(list == NULL)
     {
-        printf("List is Empty.");
+        return NULL_VALUE;
     }
     else
     {
         to_delete = list;
         secondLastNode = list;
 
-        /* Traverse to the last node of the list */
+        // move to the last item of list
         while(to_delete->next != NULL)
         {
             secondLastNode = to_delete;
@@ -274,7 +275,7 @@ int deletelastItem() // delete the last item of the list
         {
             secondLastNode->next = NULL;
         }
-        /* Delete the last item */
+
         free(to_delete);
         length--;
 
