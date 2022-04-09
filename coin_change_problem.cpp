@@ -5,6 +5,7 @@ Coin Change Problem using C++ Program.
 
 using namespace std;
 
+
 int coin_change_count( int S[], int m, int n )
 {
 	int i, j, x, y;
