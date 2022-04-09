@@ -33,12 +33,8 @@ int main() {
 
     int set_arr[total_set_element];
 
-    for (int i=0; i<total_set_element; i++) {
-        int set_element;
-        cout << i+1 << " element: ";
-        cin >> set_element;
-        set_arr[i] = set_element;
-    }
+    for (int i=0; i<total_set_element; i++)
+        cin >> set_arr[i];
 
     // total sum
     int total_sum;
