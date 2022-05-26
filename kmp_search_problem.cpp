@@ -12,6 +12,8 @@ void KMPSearchPattern(string pat, string txt)
 {
     int M = pat.size();
     int N = txt.size();
+
+    // print length of text and pattern
     cout << "Length of the Text: " << N << endl;
     cout << "Length of the Pattern: " << M << "\n\n";
 
