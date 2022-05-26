@@ -30,6 +30,7 @@ void KMPSearchPattern(string pat, string txt)
     }
     cout << endl;
   
+    // find matched pattern index
     int i = 0;  
     int j = 0;  
     while (i < N) {
