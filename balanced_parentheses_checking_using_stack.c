@@ -1,9 +1,9 @@
 /*
-Problem: Balanced Parentheses Checking Using Stack 
+Problem: Balanced Parentheses Checking Using Stack
 */
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TRUE 1
 #define FALSE 0
@@ -18,8 +18,8 @@ int top = -1;
 
 void push(char item)
 {
-    struct listNode * newNode;
-    newNode = (struct listNode*) malloc (sizeof(struct listNode));
+    struct listNode *newNode;
+    newNode = (struct listNode *)malloc(sizeof(struct listNode));
 
     newNode->item = item;
     newNode->next = list;
@@ -31,7 +31,7 @@ int pop()
 {
     struct listNode *temp;
     char pop_item;
-     
+
     pop_item = list->item;
     temp = list->next;
     free(list);
@@ -58,18 +58,18 @@ int main()
     gets(inputStr);
     length = strlen(inputStr);
 
-    for (int i=0; i<length; i++)
+    for (int i = 0; i < length; i++)
     {
-        if (inputStr[i]=='(' || inputStr[i]=='{' || inputStr[i]=='[')
+        if (inputStr[i] == '(' || inputStr[i] == '{' || inputStr[i] == '[')
         {
             push(inputStr[i]);
             continue;
         }
-        if (inputStr[i]==')' || inputStr[i]=='}' || inputStr[i]==']')
+        if (inputStr[i] == ')' || inputStr[i] == '}' || inputStr[i] == ']')
         {
-            if (inputStr[i]==')')
-            {   
-                if (list->item=='(')
+            if (inputStr[i] == ')')
+            {
+                if (list->item == '(')
                     pop();
                 else
                 {
@@ -77,9 +77,9 @@ int main()
                     break;
                 }
             }
-            if (inputStr[i]=='}')
-            {   
-                if (list->item=='{')
+            if (inputStr[i] == '}')
+            {
+                if (list->item == '{')
                     pop();
                 else
                 {
@@ -87,9 +87,9 @@ int main()
                     break;
                 }
             }
-            if (inputStr[i]==']')
-            {   
-                if (list->item=='[')
+            if (inputStr[i] == ']')
+            {
+                if (list->item == '[')
                     pop();
                 else
                 {
@@ -97,7 +97,6 @@ int main()
                     break;
                 }
             }
-            
         }
     }
     if (top == -1)
